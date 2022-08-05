@@ -13,6 +13,7 @@
       <!-- 汉堡按钮 -->
       <li
         class="fixed top-0 right-[-1px] h-4 px-1 flex items-center bg-white z-20 shadow-l-white"
+        @click="onShowPopup"
       >
         <m-svg-icon name="hamburger" class="w-1.5 h-1.5"></m-svg-icon>
       </li>
@@ -30,12 +31,16 @@
         {{ item.name }}
       </li>
     </ul>
+    <m-popup v-model="isVisible">
+      <menu-vue :categorys="data" @onItemClick="onItemClick"></menu-vue>
+    </m-popup>
   </div>
 </template>
 
 <script setup>
 import { onBeforeUpdate, ref, watch } from 'vue'
 import { useScroll } from '@vueuse/core'
+import MenuVue from '@/views/main/components/menu/index.vue'
 //vite构建的项目里可以直接使用defineProps
 defineProps({
   data: {
@@ -76,6 +81,13 @@ watch(currentCategoryIndex, (val) => {
 //item 点击
 const onItemClick = (index) => {
   currentCategoryIndex.value = index
+  isVisible.value = false
+}
+
+//控制popup显示
+const isVisible = ref(false)
+const onShowPopup = () => {
+  isVisible.value = true
 }
 </script>
 
