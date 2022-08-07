@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-white sticky top-0 left-0 z-10">
+  <div class="bg-white dark:bg-zinc-900 sticky top-0 left-0 z-10 duration-500">
     <ul
       ref="ulTarget"
       class="relative flex overflow-x-auto p-1 text-xs text-zinc-600"
@@ -8,18 +8,18 @@
       <li
         ref="sliderTarget"
         :style="sliderStyle"
-        class="absolute h-[22px] bg-zinc-900 rounded-lg duration-200"
+        class="absolute h-[22px] bg-zinc-900 dark:bg-zinc-700 rounded-lg duration-200"
       ></li>
       <!-- 汉堡按钮 -->
       <li
-        class="fixed top-0 right-[-1px] h-4 px-1 flex items-center bg-white z-20 shadow-l-white"
+        class="fixed top-0 right-[-1px] h-4 px-1 flex items-center bg-white dark:bg-zinc-900 z-20 shadow-l-white dark:shadow-l-zinc"
         @click="onShowPopup"
       >
         <m-svg-icon name="hamburger" class="w-1.5 h-1.5"></m-svg-icon>
       </li>
       <!-- items -->
       <li
-        v-for="(item, index) in data"
+        v-for="(item, index) in $store.getters.categorys"
         :key="item.id"
         class="shrink-0 px-1.5 py-0.5 duration-200 last:mr-4 z-10"
         :ref="setItemRef"
@@ -32,7 +32,7 @@
       </li>
     </ul>
     <m-popup v-model="isVisible">
-      <menu-vue :categorys="data" @onItemClick="onItemClick"></menu-vue>
+      <menu-vue @onItemClick="onItemClick"></menu-vue>
     </m-popup>
   </div>
 </template>
@@ -41,13 +41,6 @@
 import { onBeforeUpdate, ref, watch } from 'vue'
 import { useScroll } from '@vueuse/core'
 import MenuVue from '@/views/main/components/menu/index.vue'
-//vite构建的项目里可以直接使用defineProps
-defineProps({
-  data: {
-    type: Array,
-    required: true
-  }
-})
 //滑块
 const sliderStyle = ref({
   transform: 'translateX(0px)',

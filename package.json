@@ -16,7 +16,8 @@
     "mockjs": "^1.1.0",
     "vue": "^3.2.37",
     "vue-router": "^4.0.14",
-    "vuex": "^4.0.2"
+    "vuex": "^4.0.2",
+    "vuex-persistedstate": "^4.1.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.0.3",

@@ -1,7 +1,7 @@
 <template>
   <div
     ref="containerTarget"
-    class="group relative p-0.5 rounded-xl border-white duration-500 hover:bg-red-100/40"
+    class="group relative p-0.5 rounded-xl border-white dark:border-zinc200 duration-500 hover:bg-red-100/40"
   >
     <!-- 搜索图标 -->
     <m-svg-icon
@@ -16,7 +16,7 @@
       @focus="onFocusHandler"
       @blur="onBlurHandler"
       type="text"
-      class="block w-full h-[44px] pl-4 outline-0 bg-zinc-100 rounded-xl text-zinc-900 tracking-wide text-base font-semibold border border-zinc-100 focus:border-zinc-300 duration-500 group-hover:bg-white group-hover:border-zinc-200"
+      class="block w-full h-[44px] pl-4 outline-0 bg-zinc-100 dark:bg-zinc-800 rounded-xl text-zinc-900 dark:text-zinc-200 tracking-wide text-base font-semibold border border-zinc-100 dark:border-zinc-700 focus:border-zinc-300 duration-500 group-hover:bg-white dark:group-hover:bg-zinc-900 group-hover:border-zinc-200 dark:group-hover:border-zinc-700"
       placeholder="搜索"
     />
     <!-- 删除按钮 -->
@@ -43,7 +43,7 @@
       <div
         v-if="$slots.dropdown"
         v-show="isFocus"
-        class="max-h-[368px] w-full text-base overflow-auto bg-white absolute z-20 left-0 top-[56px] p-2 rounded duration-200 hover:shadow-2xl"
+        class="max-h-[368px] w-full text-base overflow-auto bg-white dark:text-zinc-300 dark:bg-zinc-800 border-zinc-200 dark:border-zinc-600 absolute z-20 left-0 top-[56px] p-2 rounded duration-200 hover:shadow-2xl"
       >
         <slot name="dropdown" />
       </div>
