@@ -1,6 +1,6 @@
 <template>
   <div
-    class="w-full bg-white dark:bg-zinc-900 border-b border-b-zinc-200 px-2 py-1 duration-500"
+    class="w-full bg-white dark:bg-zinc-900 border-b border-b-zinc-200 dark:border-b-zinc-700 px-2 py-1 duration-500"
   >
     <div class="flex items-center">
       <img
