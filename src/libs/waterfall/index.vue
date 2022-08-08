@@ -252,7 +252,7 @@ const reset = () => {
     props.data.forEach((item) => {
       item._style = null
     })
-  }, 100)
+  }, 200)
 }
 //移动端适配 响应式
 //监听列数的变化
