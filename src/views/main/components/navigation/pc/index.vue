@@ -20,10 +20,10 @@
 
       <!-- item  -->
       <li
-        @click="onItemClick(index)"
+        @click="onItemClick(item)"
         :class="{
           'text-zinc-900 bg-zinc-200 dark:bg-zinc-300 dark:text-zinc-300':
-            currentCategoryIndex === index
+            $store.getters.currentCategoryIndex === index
         }"
         v-for="(item, index) in $store.getters.categorys"
         :key="item.id"
@@ -37,6 +37,8 @@
 
 <script setup>
 import { ref } from 'vue'
+import { useStore } from 'vuex'
+const store = useStore()
 /**
  * 展开箭头状态处理
  */
@@ -47,9 +49,8 @@ const triggerState = () => {
 /**
  * 选中状态处理
  */
-const currentCategoryIndex = ref(0)
-const onItemClick = (index) => {
-  currentCategoryIndex.value = index
+const onItemClick = (item) => {
+  store.commit('app/changeCurrentCategory', item)
 }
 </script>
 

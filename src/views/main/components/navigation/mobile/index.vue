@@ -24,9 +24,9 @@
         class="shrink-0 px-1.5 py-0.5 duration-200 last:mr-4 z-10"
         :ref="setItemRef"
         :class="{
-          'text-zinc-100': currentCategoryIndex === index
+          'text-zinc-100': $store.getters.currentCategoryIndex === index
         }"
-        @click="onItemClick(index)"
+        @click="onItemClick(item)"
       >
         {{ item.name }}
       </li>
@@ -39,15 +39,17 @@
 
 <script setup>
 import { onBeforeUpdate, ref, watch } from 'vue'
+import { useStore } from 'vuex'
 import { useScroll } from '@vueuse/core'
 import MenuVue from '@/views/main/components/menu/index.vue'
+const store = useStore()
+//
 //滑块
 const sliderStyle = ref({
   transform: 'translateX(0px)',
   width: '52px'
 })
-//选中item的下标
-const currentCategoryIndex = ref(0)
+
 //获取所有itemRef
 let itemRefs = []
 const setItemRef = (el) => {
@@ -61,19 +63,23 @@ onBeforeUpdate(() => {
 const ulTarget = ref()
 //通过vueuse的useScroll获取响应式的scroll滚动距离
 const { x: ulScrollLeft } = useScroll(ulTarget)
-watch(currentCategoryIndex, (val) => {
-  const { left, width } = itemRefs[val].getBoundingClientRect()
-  //DOMRect {x: 72.53125, y: 9.75, width: 53.25, height: 23.3984375, top: 9.75, …}
+watch(
+  //watch 监听getters的时候,需要传递一个函数
+  () => store.getters.currentCategoryIndex,
+  (val) => {
+    const { left, width } = itemRefs[val].getBoundingClientRect()
+    //DOMRect {x: 72.53125, y: 9.75, width: 53.25, height: 23.3984375, top: 9.75, …}
 
-  sliderStyle.value = {
-    //滑块位置=ul横向滑动位置+当前元素left-ul的padding
-    transform: `translateX(${ulScrollLeft.value + left - 10}px)`,
-    width: width + 'px'
+    sliderStyle.value = {
+      //滑块位置=ul横向滑动位置+当前元素left-ul的padding
+      transform: `translateX(${ulScrollLeft.value + left - 10}px)`,
+      width: width + 'px'
+    }
   }
-})
+)
 //item 点击
-const onItemClick = (index) => {
-  currentCategoryIndex.value = index
+const onItemClick = (item) => {
+  store.commit('app/changeCurrentCategory', item)
   isVisible.value = false
 }
 

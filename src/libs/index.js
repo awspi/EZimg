@@ -1,6 +1,7 @@
 import svgIcon from './svg-icon/index.vue'
 import popup from './popup/index.vue'
 import { defineAsyncComponent } from 'vue'
+export { confirm } from './confirm/index'
 export default {
   //!vite通用组件自动化注册
   //*vite的glob导入功能->在系统中导入多个模块

@@ -63,6 +63,7 @@ const EMITS_CLICK = 'click'
 </script>
 
 <script setup>
+import mSvgIcon from '../svg-icon/index.vue'
 /**
  * 1.构建 type风格可选项|size大小可选项
  * 2.通过props让开发者控制按钮

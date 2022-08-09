@@ -7,4 +7,6 @@ by pithy
 
 - notes:调试错误的方法 debugger | export name ,在 vue 调试工具中排查
 
+* confirm-cpn:vnode+h()+render()
+
 # Vue 3 + Vite

@@ -10,6 +10,7 @@ import mDirectives from './directives'
 import 'virtual:svg-icons-register' //注册svg-icons
 import store from './store' //vuex
 import useTheme from './utils/theme' //darkMode 切换
+
 useRem()
 useTheme()
 createApp(App).use(router).use(store).use(mLibs).use(mDirectives).mount('#app')
