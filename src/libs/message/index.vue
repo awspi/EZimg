@@ -23,7 +23,6 @@ const typeEnum = [SUCCESS, WARN, ERROR]
 <script setup>
 import mSvgIcon from '../svg-icon/index.vue'
 import { onMounted, ref } from 'vue'
-
 const props = defineProps({
   //msg消息类型
   type: {
@@ -51,42 +50,47 @@ const props = defineProps({
     type: Function
   }
 })
+// 样式表数据
 const styles = {
-  //warn
+  // 警告
   warn: {
     icon: 'warn',
     fillClass: 'fill-warn-300',
     textClass: 'text-warn-300',
     containerClass:
-      'bg-warn-300 border-warn-200 hover:shadow-lg hover:shadow-warn-100'
+      'bg-warn-100 border-warn-200  hover:shadow-lg hover:shadow-warn-100'
   },
-  //error
+  // 错误
   error: {
     icon: 'error',
     fillClass: 'fill-error-300',
     textClass: 'text-error-300',
     containerClass:
-      'bg-error-300 border-error-200 hover:shadow-lg hover:shadow-error-100'
+      'bg-error-100 border-error-200  hover:shadow-lg hover:shadow-error-100'
   },
-  //success
+  // 成功
   success: {
     icon: 'success',
     fillClass: 'fill-success-300',
     textClass: 'text-success-300',
     containerClass:
-      'bg-success-300 border-success-200 hover:shadow-lg hover:shadow-success-100'
+      'bg-success-100 border-success-200  hover:shadow-lg hover:shadow-success-100'
   }
 }
-//isVisible
-const isVisible = ref(false)
+//isVisible控制展示
+const isVisible = ref(true)
+//关闭动画 执行时间
+const animDuration = '0.5s'
 /**
  * 保证动画展示,需要在mounted之后进行展示
  */
-
 onMounted(() => {
   isVisible.value = true
   setTimeout(() => {
     isVisible.value = false
+    setTimeout(() => {
+      props.destory && props.destory()
+    }, parseInt(animDuration.replace('0.', '').replace('s', '') * 100))
   }, props.duration)
 })
 </script>
@@ -94,7 +98,7 @@ onMounted(() => {
 <style lang="scss" scoped>
 .down-enter-active,
 .down-leave-active {
-  transition: all 0.5s;
+  transition: all v-bind(animDuration);
 }
 .down-enter-from,
 .down-leave-to {
