@@ -2,8 +2,8 @@
   <div class="fixed bottom-10 right-3">
     <!-- 回到顶部 -->
     <div
-      @click="a"
-      class="w-4 h-4 mb-1 bg-white dark:bg-zinc-900 border dark:border-0 border-zinc-200 rounded-full flex justify-center items-center cursor-pointer duration-200 hover:shadow-lg group"
+      @click="onBacktopClick"
+      class="guide-backto w-4 h-4 mb-1 bg-white dark:bg-zinc-900 border dark:border-0 border-zinc-200 rounded-full flex justify-center items-center cursor-pointer duration-200 hover:shadow-lg group"
     >
       <m-svg-icon
         name="top"
@@ -13,7 +13,8 @@
     </div>
     <!-- 引导 -->
     <div
-      class="w-4 h-4 mb-1 bg-white dark:bg-zinc-900 border dark:border-0 border-zinc-200 rounded-full flex justify-center items-center cursor-pointer duration-200 hover:shadow-lg group"
+      class="guide-start w-4 h-4 mb-1 bg-white dark:bg-zinc-900 border dark:border-0 border-zinc-200 rounded-full flex justify-center items-center cursor-pointer duration-200 group hover:shadow-lg"
+      @click="onGuideClick"
     >
       <m-svg-icon
         name="guide"
@@ -22,7 +23,7 @@
       ></m-svg-icon>
     </div>
     <!-- 反馈 -->
-    <m-popover class="flex items-center" placement="top-left">
+    <m-popover class="guide-feedback flex items-center" placement="top-left">
       <template #reference>
         <div
           class="w-4 h-4 mb-1 bg-white dark:bg-zinc-900 border dark:border-0 border-zinc-200 rounded-full flex justify-center items-center cursor-pointer duration-200 hover:shadow-lg group"
@@ -50,6 +51,32 @@
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+import Driver from 'driver.js'
+import 'driver.js/dist/driver.min.css'
+import steps from './steps'
+import { onMounted } from 'vue'
 
-<style lang="scss" scoped></style>
+let driver = null
+onMounted(() => {
+  //引导
+  driver = new Driver({
+    allowClose: false, // Whether the click on overlay should close or not
+    closeBtnText: '关闭', // Text on the close button for this step
+    nextBtnText: '下一步', // Next button text for this step
+    prevBtnText: '上一步' // Previous button text for this step
+  })
+})
+const onGuideClick = () => {
+  driver.defineSteps(steps)
+  driver.start()
+}
+const onBacktopClick = () => {}
+</script>
+
+<style lang="scss" scoped>
+.driver-fix-stacking {
+  position: fixed;
+  z-index: 100004 !important;
+}
+</style>

@@ -13,6 +13,7 @@
   "dependencies": {
     "@vueuse/core": "^9.1.0",
     "axios": "^0.27.2",
+    "driver.js": "^0.9.8",
     "file-saver": "^2.0.5",
     "mockjs": "^1.1.0",
     "vue": "^3.2.37",

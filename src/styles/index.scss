@@ -7,3 +7,11 @@
 ::-webkit-scrollbar-thumb {
   border-radius: 10px;
 }
+//解决driver icon不显示问题
+.driver-fix-stacking {
+  position: relative;
+}
+
+.driver-navigation-btns {
+  line-height: 0;
+}

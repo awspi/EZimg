@@ -4,7 +4,7 @@
   >
     <div class="flex items-center">
       <img
-        class="h-4 cursor-pointer mr-2"
+        class="guide-home h-4 cursor-pointer mr-2"
         src="http://img9.vilipix.com/picture/logo/2021/01/16/19/39/19610301_3f750ac7559f829ee2fdab2a25637e07_170.jpg"
         alt=""
         @click="onToHome"
