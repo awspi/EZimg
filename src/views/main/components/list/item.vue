@@ -1,25 +1,51 @@
 <template>
   <div class="bg-white dark:bg-zinc-900 xl:dark:bg-zinc-800 rounded pb-1">
-    <div @click="onToPinsClick" class="relative w-full rounded cursor-zoom-in group"
-      :style="{ backgroundColor: randomRGB() }">
+    <div
+      @click="onToPinsClick"
+      class="relative w-full rounded cursor-zoom-in group"
+      :style="{ backgroundColor: randomRGB() }"
+    >
       <!-- *图片 -->
-      <img v-lazy ref="imgTarget" class="w-full rounded bg-transparent" :src="data.photo" :style="{
-        height: (width / data.photoWidth) * data.photoHeight + 'px' // 缩放比(width / data.photoWidth)
-      }" />
+      <img
+        v-lazy
+        ref="imgTarget"
+        class="w-full rounded bg-transparent"
+        :src="data.photo"
+        :style="{
+          height: (width / data.photoWidth) * data.photoHeight + 'px' // 缩放比(width / data.photoWidth)
+        }"
+      />
       <!-- *遮罩层 -->
       <div
-        class="hidden opacity-0 w-full h-full bg-zinc-900/50 absolute top-0 left-0 rounded duration-300 group-hover:opacity-100 xl:block">
+        class="hidden opacity-0 w-full h-full bg-zinc-900/50 absolute top-0 left-0 rounded duration-300 group-hover:opacity-100 xl:block"
+      >
         <!-- 分享 -->
         <m-button class="absolute top-1.5 left-1.5">分享</m-button>
         <!-- 点赞 -->
-        <m-button class="absolute top-1.5 right-1.5" type="info" icon="heart"
-          iconClass="fill-zinc-900 dark:fill-zinc-200"></m-button>
+        <m-button
+          class="absolute top-1.5 right-1.5"
+          type="info"
+          icon="heart"
+          iconClass="fill-zinc-900 dark:fill-zinc-200"
+        ></m-button>
         <!-- 下载 -->
-        <m-button class="absolute bottom-1.5 left-1.5 bg-zinc-100/70" type="info" size="small" icon="download"
-          iconClass="fill-zinc-900 dark:fill-zinc-200" @click="onDownload"></m-button>
+        <m-button
+          class="absolute bottom-1.5 left-1.5 bg-zinc-100/70"
+          type="info"
+          size="small"
+          icon="download"
+          iconClass="fill-zinc-900 dark:fill-zinc-200"
+          @click="onDownload"
+        ></m-button>
         <!-- 全屏 -->
-        <m-button @click="onImageFullscreen" class="absolute bottom-1.5 right-1.5 bg-zinc-100/70" type="info"
-          size="small" icon="full" iconClass="fill-zinc-900 dark:fill-zinc-200"></m-button>
+        <m-button
+          @click="onImageFullscreen"
+          class="absolute bottom-1.5 right-1.5 bg-zinc-100/70"
+          type="info"
+          size="small"
+          icon="full"
+          iconClass="fill-zinc-900 dark:fill-zinc-200"
+        ></m-button>
       </div>
     </div>
   </div>
@@ -69,7 +95,12 @@ const { enter: onImageFullscreen, exit } = useFullscreen(imgTarget)
 /**
  * 记录pins跳转时,图片的中心点(x|y的位置+item的一半)
  */
-const { x: imgContainerX, y: imgContainerY, width: imgContainerWidth, height: imgContainerHeight } = useElementBounding(imgTarget)
+const {
+  x: imgContainerX,
+  y: imgContainerY,
+  width: imgContainerWidth,
+  height: imgContainerHeight
+} = useElementBounding(imgTarget)
 const imgContainerCenter = computed(() => {
   return {
     translateX: parseInt(imgContainerX.value + imgContainerWidth.value / 2),
@@ -87,5 +118,4 @@ const onToPinsClick = () => {
 }
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

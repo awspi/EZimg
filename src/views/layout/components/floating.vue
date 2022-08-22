@@ -72,7 +72,6 @@ const onGuideClick = () => {
   driver.start()
 }
 const onBacktopClick = () => {}
-
 </script>
 
 <style lang="scss" scoped>

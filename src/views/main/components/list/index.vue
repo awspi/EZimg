@@ -1,14 +1,28 @@
 <template>
   <div>
-    <m-waterfall class="px-1 w-full" :data="pexelsList" nodeKey="id" :column="isMobileTerminal ? 2 : 5"
-      :picPreReading="false">
+    <m-waterfall
+      class="px-1 w-full"
+      :data="pexelsList"
+      nodeKey="id"
+      :column="isMobileTerminal ? 2 : 5"
+      :picPreReading="false"
+    >
       <template v-slot="{ item, width }">
         <item-vue :data="item" :width="width" @click="onToPins"></item-vue>
       </template>
     </m-waterfall>
-    <m-infinite v-model="loading" :isFinished="isFinished" @onLoad="getPexelsListData"></m-infinite>
+    <m-infinite
+      v-model="loading"
+      :isFinished="isFinished"
+      @onLoad="getPexelsListData"
+    ></m-infinite>
     <!-- pins详情内容展示 -->
-    <transition :css="false" @beforeEnter="beforeEnter" @enter="enter" @leave="leave">
+    <transition
+      :css="false"
+      @beforeEnter="beforeEnter"
+      @enter="enter"
+      @leave="leave"
+    >
       <pins-vue v-if="isVisiblePins" :id="currentPins.id"></pins-vue>
     </transition>
   </div>
@@ -19,10 +33,10 @@ import { computed, ref, watch } from 'vue'
 import { getPexelsList } from '@/api/pexels.js'
 import itemVue from './item.vue'
 import { isMobileTerminal } from '@/utils/flexible'
-import { useStore } from 'vuex';
-import pinsVue from '../../../pins/components/pins.vue';
+import { useStore } from 'vuex'
+import pinsVue from '../../../pins/components/pins.vue'
 import gsap from 'gsap'
-import { useEventListener } from '@vueuse/core';
+import { useEventListener } from '@vueuse/core'
 const store = useStore()
 /**
  * 请求query
@@ -105,7 +119,7 @@ useEventListener(window, 'popstate', () => {
  */
 const onToPins = (item) => {
   //修改url
-  console.log(item);
+  console.log(item)
   history.pushState(null, null, `/pins/${item.id}`)
   isVisiblePins.value = true
   currentPins.value = item
@@ -117,7 +131,9 @@ const currentPins = ref({})
 //js钩子
 const beforeEnter = (el) => {
   gsap.set(el, {
-    scaleX: 0, scaleY: 0, transformOrigin: '0 0',
+    scaleX: 0,
+    scaleY: 0,
+    transformOrigin: '0 0',
     translateX: currentPins.value.location?.translateX,
     translateY: currentPins.value.location?.translateY,
     opacity: 0
@@ -126,16 +142,21 @@ const beforeEnter = (el) => {
 const enter = (el, done) => {
   gsap.to(el, {
     duration: 0.3,
-    scaleX: 1, scaleY: 1, transformOrigin: '0 0',
+    scaleX: 1,
+    scaleY: 1,
+    transformOrigin: '0 0',
     opacity: 1,
-    translateX: 0, translateY: 0,
+    translateX: 0,
+    translateY: 0,
     onComplete: done
   })
 }
 const leave = (el, done) => {
   gsap.to(el, {
     duration: 0.3,
-    scaleX: 0, scaleY: 0, transformOrigin: '0 0',
+    scaleX: 0,
+    scaleY: 0,
+    transformOrigin: '0 0',
     opacity: 0,
     translateX: currentPins.value.location?.translateX,
     translateY: currentPins.value.location?.translateY,
@@ -144,5 +165,4 @@ const leave = (el, done) => {
 }
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>
