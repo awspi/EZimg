@@ -3,12 +3,12 @@
     <!-- 回到顶部 -->
     <div
       @click="onBacktopClick"
-      class="guide-backto w-4 h-4 mb-1 bg-white dark:bg-zinc-900 border dark:border-0 border-zinc-200 rounded-full flex justify-center items-center cursor-pointer duration-200 hover:shadow-lg group"
+      class="guide-backto w-4 h-4 mb-1 bg-white dark:bg-zinc-900 border dark:border-0 border-zinc-200 rounded-full flex justify-center items-center cursor-pointer duration-200 group hover:shadow-lg"
     >
       <m-svg-icon
         name="top"
         class="w-2 h-2"
-        fillClass="fill-zinc-900 drak:fill-zinc-200 group-hover:fill-main"
+        fillClass="fill-zinc-900 dark:fill-zinc-200 group-hover:fill-main"
       ></m-svg-icon>
     </div>
     <!-- 引导 -->
@@ -19,7 +19,7 @@
       <m-svg-icon
         name="guide"
         class="w-2 h-2"
-        fillClass="fill-zinc-900 drak:fill-zinc-200 group-hover:fill-main"
+        fillClass="fill-zinc-900 dark:fill-zinc-200 group-hover:fill-main"
       ></m-svg-icon>
     </div>
     <!-- 反馈 -->
@@ -31,7 +31,7 @@
           <m-svg-icon
             name="feedback"
             class="w-2 h-2"
-            fillClass="fill-zinc-900 drak:fill-zinc-200 group-hover:fill-main"
+            fillClass="fill-zinc-900 dark:fill-zinc-200 group-hover:fill-main"
           ></m-svg-icon>
         </div>
       </template>
@@ -72,6 +72,7 @@ const onGuideClick = () => {
   driver.start()
 }
 const onBacktopClick = () => {}
+
 </script>
 
 <style lang="scss" scoped>
