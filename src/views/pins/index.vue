@@ -5,8 +5,7 @@
 </template>
 
 <script setup>
-import pinsVue from './components/pins.vue';
+import pinsVue from './components/pins.vue'
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>
