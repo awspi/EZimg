@@ -5,10 +5,11 @@ import theme from './modules/theme'
 import app from './modules/app'
 import search from './modules/search'
 import createPersistedState from 'vuex-persistedstate'
+import user from './modules/user'
 const store = createStore({
   state: {},
   getters,
-  modules: { category, theme, app, search },
+  modules: { category, theme, app, search, user },
   plugins: [
     createPersistedState({
       //指定保存到localstorage的key
