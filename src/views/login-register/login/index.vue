@@ -22,7 +22,7 @@
           type="password" name="password" placeholder="密码" autocomplete="on" :rules="validatePassword" />
         <vee-error-message class="text-sm text-red-600 block mt-0.5 text-left" name="password" />
         <!-- 跳转按钮 -->
-        <div class="pt-1 pb-3 leading-[0px] text-right">
+        <div class="pt-1 pb-3 leading-[0px] text-right" @click="onToRegister">
           <a
             class="inline-block p-1 text-zinc-400 text-right dark:text-zinc-600 hover:text-zinc-600 dark:hover:text-zinc-400 text-sm duration-300 cursor-pointer">去注册</a>
         </div>
@@ -87,20 +87,25 @@ const onCaptchaSuccess = () => {
  */
 const onLogin = async () => {
   loading.value = true
-  console.log(loginForm);
+  console.log(loginForm)
   //执行登录操作
   try {
     await store.dispatch('user/login', {
       ...loginForm.value,
       loginType: LOGIN_TYPE_USERNAME
     })
-
   } finally {
     loading.value = false
   }
   router.push('/')
 }
-
+/**
+ * 跳转注册
+ */
+const onToRegister = () => {
+  //TODO 配置跳转方式
+  router.push('/register')
+}
 </script>
 
 <style lang="scss" scoped>

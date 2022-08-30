@@ -15,7 +15,7 @@ const store = createStore({
       //指定保存到localstorage的key
       key: 'pithy-front',
       //需要保存的模块
-      paths: ['category', 'theme', 'search']
+      paths: ['category', 'theme', 'search', 'user']
     })
   ]
 })
