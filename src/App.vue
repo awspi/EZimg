@@ -4,7 +4,11 @@
   <router-view></router-view>
 </template>
 
-<script setup></script>
+<script setup>
+import { ref } from 'vue'
+const text = ref('')
+
+</script>
 
 <style lang="scss" scoped>
 </style>
