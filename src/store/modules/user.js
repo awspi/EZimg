@@ -51,9 +51,10 @@ export default {
       commit('setUserInfo', data)
       message(
         'success',
-        `欢迎您 ${data.vipLevel
-          ? '尊贵的 VIP' + data.vipLevel + ' 用户 ' + data.nickname
-          : data.nickname
+        `欢迎您 ${
+          data.vipLevel
+            ? '尊贵的 VIP' + data.vipLevel + ' 用户 ' + data.nickname
+            : data.nickname
         } `,
         6000
       )
@@ -66,7 +67,6 @@ export default {
       commit('setUserInfo', '')
       //refresh page
       location.reload()
-    },
-
+    }
   }
 }

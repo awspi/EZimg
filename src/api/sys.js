@@ -35,6 +35,6 @@ export const registerUser = (data) => {
  */
 export const getProfile = () => {
   return request({
-    url: '/user/profile',
+    url: '/user/profile'
   })
 }

@@ -34,8 +34,8 @@
 
 <script setup>
 import { useRouter } from 'vue-router'
-import { useStore } from 'vuex';
-import { confirm } from '../../../../libs';
+import { useStore } from 'vuex'
+import { confirm } from '../../../../libs'
 const store = useStore()
 const router = useRouter()
 const menuArr = [
@@ -71,10 +71,10 @@ const onItemClick = (item) => {
   switch (item.id) {
     case 2:
       confirm('确定退出吗?').then(() => store.dispatch('user/logout'))
-      break;
+      break
 
     default:
-      break;
+      break
   }
 }
 </script>

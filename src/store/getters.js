@@ -16,6 +16,5 @@ export default {
   //TOKEN
   token: (state) => state.user.token,
   //用户信息
-  userInfo: (state) => state.user.userInfo,
-
+  userInfo: (state) => state.user.userInfo
 }
