@@ -8,4 +8,5 @@ const router = createRouter({
   routes: isMobileTerminal.value ? mobileRoutes : pcRoutes
 })
 
+
 export default router

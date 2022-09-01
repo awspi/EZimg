@@ -1,33 +1,20 @@
 <template>
   <div class="bg-white dark:bg-zinc-900 sticky top-0 left-0 z-10 duration-500">
-    <ul
-      ref="ulTarget"
-      class="relative flex overflow-x-auto p-1 text-xs text-zinc-600"
-    >
+    <ul ref="ulTarget" class="relative flex overflow-x-auto p-1 text-xs text-zinc-600">
       <!-- 滑块 -->
-      <li
-        ref="sliderTarget"
-        :style="sliderStyle"
-        class="absolute h-[22px] bg-zinc-900 dark:bg-zinc-700 rounded-lg duration-200"
-      ></li>
+      <li ref="sliderTarget" :style="sliderStyle"
+        class="absolute h-[22px] bg-zinc-900 dark:bg-zinc-700 rounded-lg duration-200"></li>
       <!-- 汉堡按钮 -->
       <li
         class="fixed top-0 right-[-1px] h-4 px-1 flex items-center bg-white dark:bg-zinc-900 z-20 shadow-l-white dark:shadow-l-zinc"
-        @click="onShowPopup"
-      >
+        @click="onShowPopup">
         <m-svg-icon name="hamburger" class="w-1.5 h-1.5"></m-svg-icon>
       </li>
       <!-- items -->
-      <li
-        v-for="(item, index) in $store.getters.categorys"
-        :key="item.id"
-        class="shrink-0 px-1.5 py-0.5 duration-200 last:mr-4 z-10"
-        :ref="setItemRef"
-        :class="{
+      <li v-for="(item, index) in $store.getters.categorys" :key="item.id"
+        class="shrink-0 px-1.5 py-0.5 duration-200 last:mr-4 z-10" :ref="setItemRef" :class="{
           'text-zinc-100': $store.getters.currentCategoryIndex === index
-        }"
-        @click="onItemClick(item)"
-      >
+        }" @click="onItemClick(item)">
         {{ item.name }}
       </li>
     </ul>
@@ -42,6 +29,8 @@ import { onBeforeUpdate, ref, watch } from 'vue'
 import { useStore } from 'vuex'
 import { useScroll } from '@vueuse/core'
 import MenuVue from '@/views/main/components/menu/index.vue'
+
+
 const store = useStore()
 //
 //滑块
@@ -90,4 +79,5 @@ const onShowPopup = () => {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+</style>

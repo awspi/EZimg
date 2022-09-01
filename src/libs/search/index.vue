@@ -1,50 +1,30 @@
 <template>
-  <div
-    ref="containerTarget"
-    class="group relative p-0.5 rounded-xl border-white dark:border-zinc200 duration-500 hover:bg-red-100/40"
-  >
+  <div ref="containerTarget"
+    class="group relative p-0.5 rounded-xl border-white dark:border-zinc200 duration-500 hover:bg-red-100/40">
     <!-- 搜索图标 -->
-    <m-svg-icon
-      class="w-1.5 h-1.5 absolute translate-y-[-50%] top-[50%] left-2"
-      name="search"
-      color="#707070"
-    ></m-svg-icon>
+    <m-svg-icon class="w-1.5 h-1.5 absolute translate-y-[-50%] top-[50%] left-2" name="search" color="#707070">
+    </m-svg-icon>
     <!-- 输入框 -->
-    <input
-      v-model="inputValue"
-      @keyup.enter="onSearchHandler"
-      @focus="onFocusHandler"
-      @blur="onBlurHandler"
-      type="text"
+    <input v-model="inputValue" @keyup.enter="onSearchHandler" @focus="onFocusHandler" @blur="onBlurHandler" type="text"
       class="block w-full h-[44px] pl-4 outline-0 bg-zinc-100 dark:bg-zinc-800 rounded-xl text-zinc-900 dark:text-zinc-200 tracking-wide text-base font-semibold border border-zinc-100 dark:border-zinc-700 focus:border-zinc-300 duration-500 group-hover:bg-white dark:group-hover:bg-zinc-900 group-hover:border-zinc-200 dark:group-hover:border-zinc-700"
-      placeholder="搜索"
-    />
+      placeholder="搜索" />
     <!-- 删除按钮 -->
-    <m-svg-icon
-      v-show="inputValue"
-      name="input-delete"
+    <m-svg-icon v-show="inputValue" name="input-delete"
       class="w-1.5 h-1.5 absolute translate-y-[-50%] top-[50%] right-8 cursor-pointer duration-500"
-      @click="onClearClick"
-    >
+      @click="onClearClick">
     </m-svg-icon>
     <!-- 分割线 -->
     <div
-      class="opacity-0 h-1.5 w-[1px] absolute translate-y-[-50%] top-[50%] right-[62px] duration-500 bg-zinc-200 group-hover:opacity-100"
-    ></div>
+      class="opacity-0 h-1.5 w-[1px] absolute translate-y-[-50%] top-[50%] right-[62px] duration-500 bg-zinc-200 group-hover:opacity-100">
+    </div>
     <!-- 搜索按钮 -->
-    <m-button
-      @click="onSearchHandler"
+    <m-button @click="onSearchHandler"
       class="opacity-0 absolute translate-y-[-50%] top-[50%] right-1 rounded-full group-hover:opacity-100 duration-500"
-      icon="search"
-      iconColor="#ffffff"
-    ></m-button>
+      icon="search" iconColor="#ffffff"></m-button>
     <!-- 下拉区域 -->
     <transition name="slide">
-      <div
-        v-if="$slots.dropdown"
-        v-show="isFocus"
-        class="max-h-[368px] w-full text-base overflow-auto bg-white dark:text-zinc-300 dark:bg-zinc-800 border-zinc-200 dark:border-zinc-600 absolute z-20 left-0 top-[56px] p-2 rounded duration-200 hover:shadow-2xl scrollbar-thin scrollbar-thumb-transparent xl:scrollbar-thumb-zinc-200 xl:dark:scrollbar-thumb-zinc-900 scrollbar-track-transparent"
-      >
+      <div v-if="$slots.dropdown" v-show="isFocus"
+        class="max-h-[368px] w-full text-base overflow-auto bg-white dark:text-zinc-300 dark:bg-zinc-800 border-zinc-200 dark:border-zinc-600 absolute z-20 left-0 top-[56px] p-2 rounded duration-200 hover:shadow-2xl scrollbar-thin scrollbar-thumb-transparent xl:scrollbar-thumb-zinc-200 xl:dark:scrollbar-thumb-zinc-900 scrollbar-track-transparent">
         <slot name="dropdown" />
       </div>
     </transition>
@@ -142,6 +122,7 @@ onClickOutside(containerTarget, () => {
   opacity: 0;
   transform: translateY(40px);
 }
+
 .slide-enter-active,
 .slide-leave-active {
   transition: all 0.5s;
