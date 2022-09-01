@@ -68,9 +68,16 @@ const onToLogin = () => {
  * 处理下拉菜单点击事件
  */
 const onItemClick = (item) => {
+  console.log(item.id);
   switch (item.id) {
+    case 0:
+      router.push(item.path)
+      break
     case 2:
-      confirm('确定退出吗?').then(() => store.dispatch('user/logout'))
+      confirm('确定退出吗?').then(() => {
+        store.dispatch('user/logout')
+        router.push('/')
+      })
       break
 
     default:

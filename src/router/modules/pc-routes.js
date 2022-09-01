@@ -8,6 +8,15 @@ export default [
         path: '',
         name: 'home',
         component: () => import('@/views/main/index.vue')
+      },
+      {
+        path: '/profile',
+        name: 'profile',
+        component: () => import('@/views/profile/index.vue'),
+        //标记当前的页面只有登录之后才能进入
+        meta: {
+          user: true
+        }
       }
     ]
   },

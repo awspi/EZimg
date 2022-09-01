@@ -27,7 +27,7 @@
             class="inline-block p-1 text-zinc-400 text-right dark:text-zinc-600 hover:text-zinc-600 dark:hover:text-zinc-400 text-sm duration-300 cursor-pointer">去注册</a>
         </div>
         <!-- 登录按钮  -->
-        <m-button :loading="loading" :isActiveAnim="false" class="w-full dark:bg-zinc-900 xl:dark:bg-zinc-900">登录
+        <m-button :loading="loading" :isActiveAnim="false" class="w-full dark:bg-zinc-900 xl:dark:bg-zinc-800">登录
         </m-button>
       </vee-form>
       <!-- 第三方登录 -->

@@ -38,3 +38,22 @@ export const getProfile = () => {
     url: '/user/profile'
   })
 }
+/**
+ * 更新用户信息
+ */
+export const putProfile = (data) => {
+  return request({
+    url: '/user/profile',
+    data,
+    method: 'PUT'
+  })
+}
+/**
+ * 获取OSS上传凭证
+ */
+export const getSts = (data) => {
+  return request({
+    url: '/user/sts'
+  })
+}
+//TODO 使用自己的阿里云OSS

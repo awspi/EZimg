@@ -57,3 +57,6 @@ export const THEME_DARK = 'THEME_DARK'
 export const THEME_SYSTEM = 'THEME_SYSTEM'
 //登录方式
 export const LOGIN_TYPE_USERNAME = 'username'
+//STS上传数据
+export const REGION = 'oss-cn-beijing'
+export const BUCKET = 'imooc-front'
