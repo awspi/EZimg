@@ -75,6 +75,9 @@ const onItemClick = (item) => {
     case 0:
       router.push(item.path)
       break
+    case 1:
+      router.push('/member')
+      break
     case 2:
       confirm('确定退出吗?').then(() => {
         store.dispatch('user/logout')

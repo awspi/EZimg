@@ -26,7 +26,7 @@ const props = defineProps({
     type: Boolean
   }
 })
-//* useVModel返回响应式数据,当isVisible的值改变时,会自动触发emit修改modelValue
+//* useVModel返回响应式数据,当isVisible的值改变时,会自动触发emit修改modelValue (watch+emit)
 const isVisible = useVModel(props)
 // const emits = defineEmits(['update:modelValue'])
 

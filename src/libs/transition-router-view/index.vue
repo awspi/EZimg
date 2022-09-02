@@ -67,7 +67,7 @@ router.beforeEach((to, from) => {
   transitionName.value = props.routerType
   //入栈
   if (props.routerType === ROUTER_TYPE_PUSH) {
-    virtualTaskStack.value.push(to.name)//router name component name
+    virtualTaskStack.value.push(to.name)//router name、component name
   } else if (props.routerType === ROUTER_TYPE_BACK) {
     //出栈
     virtualTaskStack.value.pop()

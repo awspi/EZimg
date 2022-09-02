@@ -45,7 +45,7 @@ const store = useStore()
  * VIP 跳转
  */
 const onVipClick = () => {
-
+  router.push('/member')
 }
 /**
  * profile 跳转
