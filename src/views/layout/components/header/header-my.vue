@@ -25,8 +25,8 @@
         <m-svg-icon :name="item.icon" class="w-1.5 h-1.5 mr-1" fillClass="fill-zinc-900 dark:fill-zinc-300">
         </m-svg-icon>
         <span class="text-sm text-zinc-800 dark:text-zinc-300">{{
-           item.title
-          }}</span>
+            item.title
+        }}</span>
       </div>
     </div>
   </m-popover>
@@ -62,6 +62,8 @@ const menuArr = [
  * 登录按钮
  */
 const onToLogin = () => {
+  //移动端下跳转的类型
+  store.commit('app/changeRouterType', 'push')
   router.push('/login')
 }
 /**

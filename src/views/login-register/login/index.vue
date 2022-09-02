@@ -103,7 +103,8 @@ const onLogin = async () => {
  * 跳转注册
  */
 const onToRegister = () => {
-  //TODO 配置跳转方式
+  //移动端下跳转的类型
+  store.commit('app/changeRouterType', 'push')
   router.push('/register')
 }
 </script>

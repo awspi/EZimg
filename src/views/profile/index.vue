@@ -74,6 +74,7 @@ import { confirm, message } from '@/libs'
 import { ref, watch } from 'vue';
 import { putProfile } from '@/api/sys.js'
 import changeAvatarVue from './components/change-avatar.vue'
+console.log('组件profile被渲染');
 const router = useRouter()
 const store = useStore()
 const inputFileTarget = ref(null)
@@ -85,6 +86,8 @@ const isDialogVisible = ref(false)
  * onNavbarLeftClick
  */
 const onNavbarLeftClick = () => {
+  //移动端下跳转的类型
+  store.commit('app/changeRouterType', 'back')
   router.back()
 }
 /**
