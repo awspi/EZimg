@@ -17,6 +17,7 @@
         <div
           class="border border-zinc-200 dark:border-zinc-600 rounded-sm w-[220px] h-[60px] flex items-center pl-2 cursor-pointer duration-200 hover:bg-zinc-50 hover:dark:bg-zinc-800"
           @click="onAliPayClick">
+          <!-- TODO -->
           <img class="w-4 h-4" src="@/assets/images/alipay.png" alt="" />
           <p class="text-xl ml-1 text-zinc-800 dark:text-zinc-200">支付宝</p>
         </div>

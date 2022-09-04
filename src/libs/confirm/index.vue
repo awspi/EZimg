@@ -18,10 +18,10 @@
         <!-- 按钮 -->
         <div class="flex justify-end">
           <m-button type="info" class="mr-2" @click="onCancelClick">{{
-              cancelText
+          cancelText
           }}</m-button>
           <m-button type="primary" @click="onConfirmClick">{{
-              confirmText
+          confirmText
           }}</m-button>
         </div>
       </div>

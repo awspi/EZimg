@@ -28,7 +28,7 @@ const ROUTER_TYPE_ENUM = [NONE, ROUTER_TYPE_PUSH, ROUTER_TYPE_BACK]
 </script>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, watch } from 'vue';
 import { useRouter } from 'vue-router';
 
 const props = defineProps({
@@ -53,7 +53,7 @@ const props = defineProps({
 
 // !虚拟任务栈 先进后出 [home,my,profile] -->
 const virtualTaskStack = ref([props.mainComponentName])
-
+watch(virtualTaskStack.value, () => console.log(virtualTaskStack.value))
 /**
  * router前置守卫
  * routerType->transitionName

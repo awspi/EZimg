@@ -1,15 +1,9 @@
 <template>
   <transition name="down">
-    <div
-      v-show="isVisible"
+    <div v-show="isVisible"
       class="min-w-[420px] fixed top-[20px] left-[50%] translate-x-[-50%] z-50 flex items-center px-3 py-1.5 rounded-sm border cursor-pointer"
-      :class="styles[type].containerClass"
-    >
-      <m-svg-icon
-        :name="styles[type].icon"
-        :fillClass="styles[type].fillClass"
-        class="w-1.5 h-1.5 mr-1.5"
-      ></m-svg-icon>
+      :class="styles[type].containerClass">
+      <m-svg-icon :name="styles[type].icon" :fillClass="styles[type].fillClass" class="w-1.5 h-1.5 mr-1.5"></m-svg-icon>
       <span class="text-sm" :class="styles[type].textClass">{{ content }}</span>
     </div>
   </transition>
@@ -100,6 +94,7 @@ onMounted(() => {
 .down-leave-active {
   transition: all v-bind(animDuration);
 }
+
 .down-enter-from,
 .down-leave-to {
   opacity: 0;

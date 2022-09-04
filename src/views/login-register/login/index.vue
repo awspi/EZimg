@@ -32,7 +32,7 @@
       </vee-form>
       <!-- 第三方登录 -->
       <div class="flex justify-around mt-4">
-        <m-svg-icon class="w-4 h-4 cursor-pointer" name="qq"></m-svg-icon>
+        <qq-login-vue></qq-login-vue>
         <m-svg-icon class="w-4 h-4 cursor-pointer" name="wexin"></m-svg-icon>
       </div>
     </div>
@@ -44,6 +44,7 @@
 <script setup>
 import { ref } from 'vue'
 import headerVue from '../components/header.vue'
+import qqLoginVue from './qq-login.vue'
 import sliderCaptchaVue from './slider-captcha.vue'
 import {
   Form as VeeForm,

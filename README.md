@@ -3,11 +3,7 @@
 vue3 前中台综合项目
 by pithy
 
-- glimmer:处理瀑布流 waterfall
+- ## Vue 3 + Vite
 
-- notes:调试错误的方法 debugger | export name ,在 vue 调试工具中排查
 
-* confirm-cpn:vnode+h()+render()
-  - message-cpn
-
-# Vue 3 + Vite
+![通用前中台系统](https://wsp-typora.oss-cn-hangzhou.aliyuncs.com/images/202209042235933.png)

@@ -1,4 +1,3 @@
-import lazy from './modules/lazy'
 
 /**
  * !自动全局注册指令

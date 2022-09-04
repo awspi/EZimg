@@ -1,5 +1,6 @@
 import router from '@/router'
 import store from '@/store'
+import { message } from '@/lib'
 /**
  * 处理需要登录页面的访问权限
  */
