@@ -3,16 +3,9 @@
     <m-search v-model="inputValue" @search="onSearchHandler">
       <template #dropdown>
         <!-- 搜索提示 -->
-        <hint-vue
-          v-show="inputValue"
-          :searchText="inputValue"
-          @itemClick="onSearchHandler"
-        ></hint-vue>
+        <hint-vue v-show="inputValue" :searchText="inputValue" @itemClick="onSearchHandler"></hint-vue>
         <!-- 最近搜索  -->
-        <history-vue
-          v-show="!inputValue"
-          @itemClick="onSearchHandler"
-        ></history-vue>
+        <history-vue v-show="!inputValue" @itemClick="onSearchHandler"></history-vue>
         <!-- 推荐主题 -->
         <theme-vue v-show="!inputValue"></theme-vue>
       </template>
@@ -40,4 +33,6 @@ const onSearchHandler = (val) => {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+
+</style>

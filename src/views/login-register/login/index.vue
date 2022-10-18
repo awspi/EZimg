@@ -61,8 +61,8 @@ const router = useRouter()
  * login
  */
 const loginForm = ref({
-  username: 'LGD_Sunday',
-  password: '123123'
+  username: 'ceshi03',
+  password: 'ceshi03'
 })
 /**
  * 登录

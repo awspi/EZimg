@@ -152,4 +152,5 @@ const leave = (el, done) => {
 </script>
 
 <style lang="scss" scoped>
+
 </style>

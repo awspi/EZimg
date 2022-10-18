@@ -99,7 +99,7 @@ const changeAvatarClick = () => {
 
 /**
  * onSelectImgHandler
- * !当两次选择文件是同一个的时候,change的回调不会再次被处罚->每次选择图片不再被使用时,清空掉inputFileTarget.value
+ * !当两次选择文件是同一个的时候,change的回调不会再次被触发->每次选择图片不再被使用时,清空掉inputFileTarget.value
  */
 const onSelectImgHandler = () => {
   const imgFile = inputFileTarget.value.files[0]
@@ -150,4 +150,5 @@ const userInfo = ref({ ...store.getters.userInfo })
 </script>
 
 <style lang="scss" scoped>
+
 </style>

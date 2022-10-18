@@ -15,4 +15,5 @@ import floatingVue from './components/floating.vue'
 </script>
 
 <style lang="scss" scoped>
+
 </style>
