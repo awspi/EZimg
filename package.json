@@ -19,6 +19,7 @@
     "driver.js": "^0.9.8",
     "file-saver": "^2.0.5",
     "gsap": "^3.9.1",
+    "http-proxy-middleware": "^2.0.6",
     "md5": "^2.3.0",
     "mockjs": "^1.1.0",
     "vee-validate": "^4.6.6",
