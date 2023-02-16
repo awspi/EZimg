@@ -17,7 +17,7 @@ module.exports = (req, res) => {
     pathRewrite: {
       // 通过路径重写，去除请求路径中的 `/api`
       // 例如 /api/user/login 将被转发到 http://target/user/login
-      '^/api/': '/api/'
+      // '^/api/': '/api/'
     }
   })(req, res)
 }
