@@ -5,7 +5,7 @@
  */
 export default {
   install(app) {
-    const directives = import.meta.globEager('./modules/*.js')
+    const directives = import.meta.glob('./modules/*.js', { eager: true })
     console.log(directives)
     for (const [key, value] of Object.entries(directives)) {
       const arr = key.split('/')
