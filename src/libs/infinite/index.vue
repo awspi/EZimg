@@ -18,6 +18,7 @@
 
 <script setup>
 import { useVModel, useIntersectionObserver } from '@vueuse/core'
+
 import { ref, watch } from 'vue'
 
 const props = defineProps({
@@ -37,18 +38,21 @@ const emits = defineEmits(['onLoad', 'update:modelValue'])
 //处理loading
 const loading = useVModel(props)
 //-----
-//记录是否在底部
+// 记录是否可见
 const targetIsIntersection = ref(false)
 const loadingTarget = ref(null)
 useIntersectionObserver(loadingTarget, ([{ isIntersecting }]) => {
   targetIsIntersection.value = isIntersecting
+  // 每次可见状态改变了就调用emitLoad()
   emitLoad()
 })
 /**
  * 触发load事件
  */
 const emitLoad = () => {
-  //当 加载更多的视图可见&&loading==false&&数据尚未全部加载完成 时,处理加载更多的逻辑
+  //当 加载更多的视图可见
+  // && loading==false 保证不重复触发加载命令
+  // && 数据尚未全部加载完成 加载完了就不去触发加载命令
   if (targetIsIntersection.value && !loading.value && !props.isFinished) {
     loading.value = true
     //emits onLoad
@@ -56,7 +60,10 @@ const emitLoad = () => {
   }
 }
 /**
- * 监听loading变化 解决数据加载完成但首屏未铺满 不触发emitLoad
+ * 监听loading变化
+ * * 解决数据加载完成但是因为首屏未铺满的情况下 标
+ * * 标识的isIntersecting不发生改变 导致不会触发emitLoad
+ *
  */
 watch(loading, () => {
   setTimeout(() => {

@@ -6,7 +6,7 @@
         <item-vue :data="item" :width="width" @click="onToPins"></item-vue>
       </template>
     </m-waterfall>
-    <m-infinite v-model="loading" :isFinished="isFinished" @onLoad="getPexelsListData"></m-infinite>
+    <m-infinite v-model="loading" :isFinished="isFinished" @onLoad="getPexelsListData" />
     <!-- pins详情内容展示 -->
     <transition :css="false" @beforeEnter="beforeEnter" @enter="enter" @leave="leave">
       <pins-vue v-if="isVisiblePins" :id="currentPins.id"></pins-vue>

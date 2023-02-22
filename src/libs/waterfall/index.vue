@@ -89,7 +89,7 @@ const containerLeft = ref(0)
 /**
  * 计算容器宽度
  */
-const usecontainerWidth = () => {
+const useContainerWidth = () => {
   const { paddingLeft, paddingRight } = getComputedStyle(
     containerTarget.value,
     null
@@ -113,7 +113,7 @@ const columnSpacingTotal = computed(() => {
  */
 const useColumnWidth = () => {
   //计算容器宽度
-  usecontainerWidth()
+  useContainerWidth()
   //计算列宽
   columnWidth.value =
     (containerWidth.value - columnSpacingTotal.value) / props.column
@@ -134,7 +134,7 @@ const waitImgComplete = () => {
   let itemElements = [...document.getElementsByClassName('m-waterfall-item')]
   // 拿到所有img标签
   const imgElements = getImgElements(itemElements)
-  //获取所以img标签的图片
+  //获取所有img标签的图片
   const allImgs = getAllImg(imgElements)
   //等待图片加载完成
   onCompleteImgs(allImgs).then(() => {

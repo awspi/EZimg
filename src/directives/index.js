@@ -6,7 +6,7 @@
 export default {
   install(app) {
     const directives = import.meta.glob('./modules/*.js', { eager: true })
-    console.log(directives)
+    console.warn(directives)
     for (const [key, value] of Object.entries(directives)) {
       const arr = key.split('/')
       const name = arr[arr.length - 1].replace('.js', '')

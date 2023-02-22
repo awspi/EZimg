@@ -72,7 +72,7 @@ const getElementSize = (target) => {
   if (!target) return {}
   return {
     width: target.offsetWidth,
-    heigeht: target.offsetHeight
+    height: target.offsetHeight
   }
 }
 /**
@@ -82,7 +82,7 @@ const contentStyle = ref({
   top: 0,
   left: 0
 })
-//计算:期望气泡展示的时候再计算
+//? 计算:期望气泡展示的时候再计算
 watch(isVisiable, (val) => {
   if (!val) return
   //等待元素渲染
@@ -103,13 +103,13 @@ watch(isVisiable, (val) => {
         break
       case PROP_BOTTOM_LEFT:
         contentStyle.value.top =
-          getElementSize(referenceTarget.value).heigeht + 'px'
+          getElementSize(referenceTarget.value).height + 'px'
         contentStyle.value.left =
           -getElementSize(contentTarget.value).width + 'px'
         break
       case PROP_BOTTOM_RIGHT:
         contentStyle.value.top =
-          getElementSize(referenceTarget.value).heigeht + 'px'
+          getElementSize(referenceTarget.value).height + 'px'
         contentStyle.value.left =
           getElementSize(referenceTarget.value).width + 'px'
         break

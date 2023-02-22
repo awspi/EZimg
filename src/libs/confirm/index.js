@@ -2,7 +2,7 @@ import { h, render } from 'vue'
 import confirmCpn from './index.vue'
 
 /**
- *展示confirm
+ * 展示confirm
  * @param {*} title 标题
  * @param {*} content 内容
  * @param {*} cancelText 返回按钮文本

@@ -5,16 +5,16 @@
     <transition :name="transitionName" @before-enter="beforeEnter" @after-leave="afterLeave">
       <!-- 缓存组件 -->
       <!-- 动态组件 -->
-      <!--
-          ?当使用 <component :is="..."> 来在多个组件间作切换时，被切换掉的组件会被卸载。我们可以通过 <KeepAlive> 组件强制被切换掉的组件仍然保持“存活”的状态。
-            -->
+      <!-- ?当使用 <component :is="..."> 来在多个组件间作切换时，被切换掉的组件会被卸载。 -->
+      <!--? 可以通过 <KeepAlive> 组件强制被切换掉的组件仍然保持“存活”的状态 -->
       <!-- 同域名下的跳转,比如(动态路由 detail/:id) -->
       <!-- <component :is="Component" :key="$route.fullPath" /> -->
       <!-- ?<KeepAlive> 默认会缓存内部的所有组件实例，但我们可以通过 include 和 exclude prop 来定制该行为 -->
+      <!--* isAnimation设置动画所需的CSS 跳转后取消 -->
       <keep-alive :include="virtualTaskStack">
         <component :is="Component" :key="$route.fullPath"
-          :class='{ "fixed left-0 top-0 w-screen z-50": isAnimation }' />
-      </keep-alive>
+        :class='{ "fixed left-0 top-0 w-screen z-50": isAnimation }' />
+        </keep-alive>
     </transition>
   </router-view>
 </template>
@@ -68,6 +68,7 @@ router.beforeEach((to, from) => {
   //入栈
   if (props.routerType === ROUTER_TYPE_PUSH) {
     virtualTaskStack.value.push(to.name)//router name、component name
+    console.warn(to.name);
   } else if (props.routerType === ROUTER_TYPE_BACK) {
     //出栈
     virtualTaskStack.value.pop()

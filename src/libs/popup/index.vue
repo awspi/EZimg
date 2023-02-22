@@ -18,6 +18,7 @@
 </template>
 
 <script setup>
+// 移动端弹出层
 import { useScrollLock, useVModel } from '@vueuse/core'
 import { watch } from 'vue'
 const props = defineProps({
@@ -33,6 +34,7 @@ const isVisible = useVModel(props)
 //锁定滚动
 const isLocked = useScrollLock(document.body)
 // isVisible和锁定滚动 绑定
+// 如果可见 显示popup 此时不应该可以滑动
 watch(
   isVisible,
   (val) => {
