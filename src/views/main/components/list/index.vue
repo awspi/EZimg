@@ -1,7 +1,6 @@
 <template>
   <div>
-    <m-waterfall class="px-1 w-full" :data="pexelsList" nodeKey="id" :column="isMobileTerminal ? 2 : 5"
-      :picPreReading="false">
+    <m-waterfall class="px-1 w-full" :data="pexelsList" nodeKey="id" :column="isMobileTerminal ? 2 : 5">
       <template v-slot="{ item, width }">
         <item-vue :data="item" :width="width" @click="onToPins"></item-vue>
       </template>
@@ -100,6 +99,11 @@ const resetQuery = (newQuery) => {
 useEventListener(window, 'popstate', () => {
   isVisiblePins.value = false
 })
+// Use EventListener with ease.
+// Register using addEventListener on mounted, and removeEventListener automatically on unmounted.
+
+
+
 /**
  * 进入pins
  */
@@ -116,6 +120,7 @@ const isVisiblePins = ref(false)
 const currentPins = ref({})
 //js钩子
 const beforeEnter = (el) => {
+  console.warn(currentPins.value);
   gsap.set(el, {
     scaleX: 0,
     scaleY: 0,
